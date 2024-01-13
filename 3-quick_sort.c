@@ -26,7 +26,7 @@ int partition(int *array, int low, int high, size_t size)
 {
 	int i = low - 1, j;
 
-	for (j = low; j < high - 1; j++)
+	for (j = low; j <= high - 1; j++)
 	{
 		if (array[j] <= array[high])
 		{
@@ -38,10 +38,12 @@ int partition(int *array, int low, int high, size_t size)
 			}
 		}
 	}
-
-	swap(&array[i + 1], &array[high]);
-	print_array(array, size);
-	return (i + 1);
+	if (array[i + 1] > array[high])
+	{
+		swap(&array[i + 1], &array[high]);
+		print_array(array, size);
+	}
+		return (i + 1);
 }
 /**
  * quick_sort_recursion - Recursively sorts an array
