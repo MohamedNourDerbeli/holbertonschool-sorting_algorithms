@@ -37,17 +37,17 @@ void insertion_sort_list(listint_t **list)
 			if (!swap->prev)
 				*list = swap;
 			swap = tmp->prev;
-		}
-		prin = *list;
+			prin = *list;
 
-		while (prin)
-		{
-			if (prin->prev || !prin->next)
-				printf(", ");
-			printf("%d", prin->n);
-			prin = prin->next;
+			while (prin)
+			{
+				if (prin->prev || !prin->next)
+					printf(", ");
+				printf("%d", prin->n);
+				prin = prin->next;
+			}
+			printf("\n");
 		}
-		printf("\n");
 		current_node = current_node->next;
 	}
 }
