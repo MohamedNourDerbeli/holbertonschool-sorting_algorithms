@@ -15,10 +15,10 @@ void insertion_sort_list(listint_t **list)
 	listint_t *tmp;
 	listint_t *swap;
 
+	if (list == NULL || *list == NULL)
+		return;
 	while (current_node)
 
-		if (list == NULL || *list == NULL)
-			return;
 	{
 		swap = current_node;
 
