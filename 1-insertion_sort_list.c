@@ -13,14 +13,16 @@ void insertion_sort_list(listint_t **list)
 
 	if (list == NULL || *list == NULL)
 		return;
-	listint_t *current_node = *list, *swap, *tmp, *prin;
+	listint_t *current_node = (*list)->next;
 
 	while (current_node)
 	{
-		swap = current_node;
+		listint_t *swap = current_node;
+
 		while (swap->prev && swap->n < swap->prev->n)
 		{
-			tmp = swap->prev;
+			listint_t *tmp = swap->prev;
+
 			swap->prev = tmp->prev;
 			tmp->next = swap->next;
 			if (swap->prev)
@@ -33,7 +35,8 @@ void insertion_sort_list(listint_t **list)
 				*list = swap;
 			swap = tmp->prev;
 		}
-		prin = *list;
+		listint_t *prin = *list;
+
 		while (prin)
 		{
 			if (prin->prev || !prin->next)
