@@ -24,25 +24,24 @@ void swap(int *i, int *j)
  */
 int partition(int *array, int low, int high, size_t size)
 {
-	int pivot_value = array[high];
-	int i = low, j;
+	int i = low - 1, j;
 
-	for (j = low; j < high; j++)
+	for (j = low; j < high - 1; j++)
 	{
-		if (array[j] <= pivot_value)
+		if (array[j] <= array[high])
 		{
+			i++;
 			if (i < j)
 			{
 				swap(&array[i], &array[j]);
 				print_array(array, size);
 			}
-			i++;
 		}
 	}
 
-	swap(&array[i], &array[high]);
+	swap(&array[i + 1], &array[high]);
 	print_array(array, size);
-	return (i);
+	return (i + 1);
 }
 /**
  * quick_sort_recursion - Recursively sorts an array
